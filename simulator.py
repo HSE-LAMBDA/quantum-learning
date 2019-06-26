@@ -72,11 +72,10 @@ def measure(trials, trueState, measurement, checkValidity = False):
     n = random.binomial(trials, p)
     return array([n, trials - n])
     
-def generate_dataset(target_state, train_size, measurements_cnt=10, shuffle=True):
+def generate_dataset(target_state, projectors_cnt, measurements_cnt, shuffle=True):
     dim = target_state.shape[0]
-    assert(train_size <= dim, 'overdefined system of projectors')
     projectors = [] # E
-    for _ in range(train_size):
+    for _ in range(projectors_cnt):
         proj = randomPureState(dim) # E_m
         projectors.append(proj)
     train_X = []
