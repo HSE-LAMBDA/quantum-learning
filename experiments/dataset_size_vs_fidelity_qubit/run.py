@@ -3,7 +3,7 @@ import sys
 import time
 import numpy as np
 import tensorflow as tf
-from lib import simulator
+import lib
 
 param_set = {}
 for i, param in enumerate(sys.argv[1:]):
@@ -24,59 +24,48 @@ measurements_cnt = param_set['measurements']
 
 train_size = projectors_cnt * measurements_cnt
 
-sess = tf.InteractiveSession()
-
-M_real, M_img = tf.Variable(tf.random_normal([dim, dim])), tf.Variable(tf.random_normal([dim, dim]))
-M = tf.complex(M_real, M_img)
-
-rho_ph = tf.placeholder(dtype=M.dtype, shape=[dim, dim])
-x_ph = tf.placeholder(dtype=M.dtype, shape=[None, dim, dim])
+x_ph = tf.placeholder(dtype=tf.complex64, shape=[None, dim, dim])
 y_ph = tf.placeholder(dtype=tf.float32, shape=[None])
-
-sigma = tf.matmul(tf.conj(M), M, transpose_a=True)
-sigma /= tf.trace(sigma)
-
-measurements = tf.real(tf.trace(tf.einsum('bij,jk->bik', x_ph, rho_ph)))
-prediction = tf.real(tf.trace(tf.einsum('bij,jk->bik', x_ph, sigma)))
-loss = tf.losses.mean_squared_error(prediction, y_ph)
-
-update_M = tf.train.GradientDescentOptimizer(learning_rate=1e-1).minimize(loss, var_list=[M_real, M_img])
-sess.run(tf.global_variables_initializer())
+model = lib.BaselineModel(x_ph, y_ph)
 
 loss_history = []
 metrics_history = []
+fidelity_history = []
+sess = tf.InteractiveSession()
 
 for i in range(10):
 
-    train_X, train_y = simulator.generate_dataset(rho, projectors_cnt, measurements_cnt)
+    train_X, train_y = lib.generate_dataset(rho, projectors_cnt, measurements_cnt)
     train_y = train_y.astype('float64')
     sess.run(tf.global_variables_initializer())
-    measurements_rho = sess.run(measurements, {x_ph: train_X, rho_ph: rho})
+    measurements_rho = np.array([lib.simulator.bornRule(x, rho) for x in train_X])
 
     epochs = int(1e5)
     last_loss = int(1e9)
     loss_t = 0
 
     for t in range(epochs):
-        loss_t, _ = sess.run([loss, update_M], {x_ph: train_X, y_ph: train_y})
+        loss_t, _ = sess.run([model.loss, model.optimize], {x_ph: train_X, y_ph: train_y})
         if abs(last_loss - loss_t) < 1e-7:
             break
         last_loss = loss_t
 
     loss_history.append(loss_t)
 
-    sigma_pred = sess.run(sigma)
-    measurements_sigma = sess.run(measurements, {x_ph: train_X, rho_ph: sigma_pred})
+    sigma = sess.run(model.sigma)
+    measurements_sigma = np.array([lib.simulator.bornRule(x, sigma) for x in train_X])
 
     diff = abs(measurements_sigma - measurements_rho)
     metrics_history.append(diff.mean())
+    fidelity_history.append(lib.fidelity(rho, sigma))
 
 t1 = time.time()
 print('Time: ', t1 - t0)
 
 results_file = open(os.path.join(param_set['exp_path'], 'results'), 'a', buffering=1)
 param_set['loss'] = np.round(np.mean(loss_history), 5)
-param_set['mean'] = np.round(np.mean(metrics_history), 5)
+param_set['metric'] = np.round(np.mean(metrics_history), 5)
+param_set['fidelity'] = np.round(np.mean(fidelity_history), 5)
 del param_set['exp_path']
 results_file.write(str(param_set) + '\n')
 results_file.close()

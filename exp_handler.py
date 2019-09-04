@@ -4,8 +4,7 @@ import json
 import subprocess
 from sklearn.model_selection import ParameterGrid
 
-exp_name = 'raise_dim'
-exp_path = os.path.join('exps', exp_name)
+exp_path = sys.argv[1]
 run_path = os.path.join(exp_path, 'run.py')
 config_path = os.path.join(exp_path, 'config.json')
 assert os.path.isdir(exp_path), 'Experiment {} do not exists'.format(exp_path)
@@ -22,8 +21,8 @@ for i in range(len(param_grid)):
 print(len(param_grid), 'param combinations')
 
 
-if os.path.isfile(os.path.join(exp_name, 'results.txt')):
-    os.remove(os.path.join(exp_name, 'results.txt'))
+if os.path.isfile(os.path.join(exp_path, 'results')):
+    os.remove(os.path.join(exp_path, 'results'))
 
 for param_id, param_set in enumerate(param_grid):
     lst = [sys.executable, run_path]
@@ -32,6 +31,5 @@ for param_id, param_set in enumerate(param_grid):
     for key in param_set:
         lst += [key, str(param_set[key])]
 
-    res = subprocess.run(lst)
+    res = subprocess.run(lst, env={**os.environ, 'PYTHONPATH': ':'.join(sys.path)})
     print('Return code:', res.returncode)
-    break
