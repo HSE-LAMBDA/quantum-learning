@@ -69,7 +69,7 @@ def measure(trials, trueState, measurement, checkValidity = False):
             (not isDensityMatrix(trueState))):
             raise ValueError('Invalid true state and/or measurement were given')
     p = bornRule(trueState, measurement)
-    n = random.binomial(trials, p)
+    n = random.binomial(trials, np.clip(p, 0, 1))
     return array([n, trials - n])
     
 # Sample qubit true states
