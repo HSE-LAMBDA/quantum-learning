@@ -13,12 +13,14 @@ def generate_dataset(target_state, projectors_cnt, measurements_cnt, shuffle=Tru
     train_y = []
     for proj in projectors:
         measurements = measure(measurements_cnt, target_state, proj)
-        for _ in range(measurements[0]):
-            train_X.append(proj)
-            train_y.append(1)
-        for _ in range(measurements[1]):
-            train_X.append(proj)
-            train_y.append(0)
+        train_X.append(proj)
+        train_y.append(measurements[0] / measurements.sum())
+        # for _ in range(measurements[0]):
+        #     train_X.append(proj)
+        #     train_y.append(1)
+        # for _ in range(measurements[1]):
+        #     train_X.append(proj)
+        #     train_y.append(0)
     train_X = np.array(train_X)
     train_y = np.array(train_y)
     indices = np.arange(train_X.shape[0])
