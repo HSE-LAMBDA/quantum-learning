@@ -1,26 +1,29 @@
 import numpy as np
 from scipy.linalg import sqrtm
-from .simulator import randomPureState, measure
+from .simulator import projectorOnto, measure
 
 
-def generate_dataset(target_state, projectors_cnt, measurements_cnt, shuffle=True):
+def generate_dataset(target_state, projectors_cnt, measurements_cnt, noise=0, shuffle=True):
     dim = target_state.shape[0]
+    train_X = []
     projectors = []  # E
     for _ in range(projectors_cnt):
-        proj = randomPureState(dim)  # E_m
+        psi = np.random.randn(dim) + 1j * np.random.randn(dim)
+        proj = projectorOnto(psi)
+        proj /= np.trace(proj)
         projectors.append(proj)
-    train_X = []
+
+        if noise != 0:
+            psi = psi + np.random.normal(0, noise)
+            proj = projectorOnto(psi)
+            proj /= np.trace(proj)
+        train_X.append(proj)
+
     train_y = []
     for proj in projectors:
-        measurements = measure(measurements_cnt, target_state, proj)
-        train_X.append(proj)
-        train_y.append(measurements[0] / measurements.sum())
-        # for _ in range(measurements[0]):
-        #     train_X.append(proj)
-        #     train_y.append(1)
-        # for _ in range(measurements[1]):
-        #     train_X.append(proj)
-        #     train_y.append(0)
+        ones, zeroes = measure(measurements_cnt, target_state, proj)
+        train_y.append(ones / measurements_cnt)
+
     train_X = np.array(train_X)
     train_y = np.array(train_y)
     indices = np.arange(train_X.shape[0])
