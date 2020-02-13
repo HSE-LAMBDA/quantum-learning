@@ -27,7 +27,7 @@ def train_model(rho, args):
     y_ph = tf.placeholder(dtype=tf.float32, shape=[None])
     model = lib.BaselineModel(x_ph, y_ph, learning_rate=args.lr)
 
-    X_train, y_train = lib.generate_dataset(rho, args.n_proj, args.n_measur)
+    X_train, y_train = lib.generate_dataset(rho, args.n_proj, args.n_measur, noise=args.noise)
     y_train = y_train.astype('float64')
     measurements_rho = np.array([lib.simulator.bornRule(x, rho) for x in X_train])
 
@@ -35,10 +35,11 @@ def train_model(rho, args):
     sess.run(tf.global_variables_initializer())
     writer = init_writer(args)
     fidelity_history = []
-
+    loss_history = []
     for t in tqdm(count()):
         indices = np.random.permutation(args.n_proj)[:args.batch_size]
         loss_t, _ = sess.run([model.loss, model.optimize], {x_ph: X_train[indices], y_ph: y_train[indices]})
+        loss_history.append(loss_t)
         writer.add_scalar('train/loss', loss_t, t)
 
         if t % 25 == 0:
@@ -49,9 +50,8 @@ def train_model(rho, args):
             fidelity = lib.fidelity(rho, sigma)
             writer.add_scalar('valid/metrics', diff.mean(), t)
             writer.add_scalar('valid/fidelity', fidelity, t)
-
             fidelity_history.append(fidelity)
-            if len(fidelity_history) - np.argmax(fidelity_history) > 50:
+            if t > 0 and abs(loss_history[-1] - loss_history[-2]) < 1e-10:
                 break
 
     return sess.run(model.sigma), np.max(fidelity_history)
@@ -63,6 +63,7 @@ if __name__ == '__main__':
     parser.add_argument('--n-proj', type=int, required=True)
     parser.add_argument('--n-measur', type=int, required=True)
     parser.add_argument('--lr', type=float, default=1e-3)
+    parser.add_argument('--noise', type=float, default=0)
     parser.add_argument('--batch-size', type=int, default=5000)
     parser.add_argument('--exp-name', type=str, default='untitled')
     parser.add_argument('--seed', type=int, default=42)
@@ -81,6 +82,7 @@ if __name__ == '__main__':
         'qubits': parsed_args.n_qubits,
         'proj': parsed_args.n_proj,
         'meas': parsed_args.n_measur,
+        'noise': parsed_args.noise,
         'fidel': fidelity,
         'time': time.time() - t,
     }
