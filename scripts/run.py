@@ -54,7 +54,7 @@ def train_model(rho, args):
             if t > 0 and abs(loss_history[-1] - loss_history[-2]) < 1e-10:
                 break
 
-    return sess.run(model.sigma), np.max(fidelity_history)
+    return sess.run(model.sigma), fidelity_history[-1], loss_history[-1]
 
 
 if __name__ == '__main__':
@@ -68,15 +68,14 @@ if __name__ == '__main__':
     parser.add_argument('--exp-name', type=str, default='untitled')
     parser.add_argument('--seed', type=int, default=42)
     parsed_args = parser.parse_args()
-
     np.random.seed(parsed_args.seed)
     tf.set_random_seed(parsed_args.seed)
 
     t = time.time()
     true_state = lib.randomMixedState(2 ** parsed_args.n_qubits)
-    pred_state, fidelity = train_model(true_state, parsed_args)
+    pred_state, fidelity, loss = train_model(true_state, parsed_args)
 
-    results_file = open('./logs/results', 'a', buffering=1)
+    results_file = open('logs/results', 'a', buffering=1)
     report = {
         'exp': parsed_args.exp_name,
         'qubits': parsed_args.n_qubits,
@@ -84,6 +83,7 @@ if __name__ == '__main__':
         'meas': parsed_args.n_measur,
         'noise': parsed_args.noise,
         'fidel': fidelity,
+        'loss': loss,
         'time': time.time() - t,
     }
     results_file.write(str(report) + '\n')
