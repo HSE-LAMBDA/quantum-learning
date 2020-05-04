@@ -23,7 +23,7 @@ def loss(sigma_real, sigma_imag, X, y):
         res += ((E_real.dot(sigma_real)+E_imag.dot(sigma_imag)-y_m)**2)
     return res / len(X)
 
-def metrics(sigma, X, y):
+def eval_loss(sigma, X, y):
     return np.mean(np.real((trace(X.dot(sigma)))-y)**2)
 
 def check_numpy(x):
@@ -51,18 +51,19 @@ def train_model(true_state, parsed_args):
     sigma_real, sigma_imag = [tn.Tensor(x, ranks_tt=parsed_args.tensor_rank, requires_grad=True) 
         for x in [np.real(sigma), np.imag(sigma)]]
         
-    start_loss = metrics(sigma, train_X, train_y)
-    start_valid = metrics(sigma, valid_X, valid_y)
-    tolerance = 10e-2 * start_loss 
-    tn.optimize(
+    start_loss = eval_loss(sigma, train_X, train_y)
+    start_valid = eval_loss(sigma, valid_X, valid_y)
+    tolerance = 10e-5 * start_valid 
+    lib.optimize(
         [sigma_real, sigma_imag], 
-        lambda x, y: loss(x, y, train_X, train_y), 
+        loss_function=lambda x, y: loss(x, y, train_X, train_y),
+        eval_function=lambda x, y: eval_loss(check_numpy(x) + 1j * check_numpy(y), valid_X, valid_y), 
         verbose=False,
         tol=tolerance)
     sigma = check_numpy(sigma_real) + 1j * check_numpy(sigma_imag)
     
-    final_loss = metrics(sigma, train_X, train_y)
-    final_valid = metrics(sigma, valid_X, valid_y)
+    final_loss = eval_loss(sigma, train_X, train_y)
+    final_valid = eval_loss(sigma, valid_X, valid_y)
     return sigma, (start_loss, final_loss, start_valid, final_valid)
 
 if __name__ == '__main__':

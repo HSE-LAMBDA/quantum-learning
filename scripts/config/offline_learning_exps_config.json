@@ -1,0 +1,10 @@
+{
+    "script": "offline_learning.py",
+    "params": [
+        {"--n-qubits": 1, "--n-projectors": 100, "--n-measurements": 1000, "--exp-name": "offline"},
+        {"--n-qubits": 2, "--n-projectors": 200, "--n-measurements": 1000, "--exp-name": "offline"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--exp-name": "offline"},
+        {"--n-qubits": 4, "--n-projectors": 400, "--n-measurements": 1000, "--exp-name": "offline"},
+        {"--n-qubits": 5, "--n-projectors": 500, "--n-measurements": 1000, "--exp-name": "offline"}
+    ]
+}

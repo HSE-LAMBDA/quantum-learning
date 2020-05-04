@@ -39,23 +39,23 @@ def train_model(true_state, args):
     sigma = sess.run(model.sigma)
     start_loss = metrics(sigma, train_X, train_y)
     start_valid = metrics(sigma, valid_X, valid_y)
-    tolerance = 10e-5 * start_loss
+    tolerance = 10e-5 * start_valid
 
     last_loss = 0
     for t in tqdm(count()):
         indices = np.random.permutation(args.n_projectors)[:args.batch_size]
         loss_t, _ = sess.run([model.loss, model.optimize], {x_ph: train_X[indices], y_ph: train_y[indices]})
 
-        if (t + 1) % 100 == 0:
+        if t % 100 == 0:
             sigma = sess.run(model.sigma)
-            final_loss = metrics(sigma, train_X, train_y)
-            if abs(last_loss - loss_t) < tolerance:
+            valid = metrics(sigma, valid_X, valid_y)
+            if abs(last_loss - valid) < tolerance:
                 break
-        last_loss = loss_t
+            last_loss = valid
 
-    final_valid = metrics(sigma, valid_X, valid_y)
+    final_loss = metrics(sigma, train_X, train_y)
     fidelity = lib.fidelity(true_state, sigma)
-    return sigma, (fidelity, start_loss, final_loss, start_valid, final_valid)
+    return sigma, (fidelity, start_loss, final_loss, start_valid, valid)
 
 
 if __name__ == '__main__':
