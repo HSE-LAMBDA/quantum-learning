@@ -39,8 +39,8 @@ def check_numpy(x):
      
 def train_model(true_state, parsed_args):
     dim = true_state.shape[0]
-    valid_proj = 1000
-    valid_meas = 1000
+    valid_proj = 10000
+    valid_meas = 10000
     train_X, train_y = lib.generate_dataset(
         true_state, parsed_args.n_projectors, parsed_args.n_measurements)
     train_y = train_y.astype('float64')
@@ -53,8 +53,12 @@ def train_model(true_state, parsed_args):
         
     start_loss = metrics(sigma, train_X, train_y)
     start_valid = metrics(sigma, valid_X, valid_y)
-    
-    tn.optimize([sigma_real, sigma_imag], lambda x, y: loss(x, y, train_X, train_y), verbose=False)
+    tolerance = 10e-2 * start_loss 
+    tn.optimize(
+        [sigma_real, sigma_imag], 
+        lambda x, y: loss(x, y, train_X, train_y), 
+        verbose=False,
+        tol=tolerance)
     sigma = check_numpy(sigma_real) + 1j * check_numpy(sigma_imag)
     
     final_loss = metrics(sigma, train_X, train_y)
