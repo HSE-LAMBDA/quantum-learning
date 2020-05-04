@@ -23,7 +23,7 @@ log_file = open(os.path.join(log_dir, 'results'), 'a+')
 
 commands = []
 for exp in exps['params']:
-    cmd = [sys.executable, exps['script']]
+    cmd = [sys.executable, os.path.join(ROOT_PATH, 'scripts', exps['script'])]
     cmd += [str(x) for x in itertools.chain(*exp.items())]
     commands.append(cmd)
 
@@ -44,3 +44,4 @@ for _, f in processes:
     f.close()
 
 log_file.close()
+
