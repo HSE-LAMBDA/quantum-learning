@@ -1,9 +1,9 @@
 import numpy as np
+import pandas as pd
+import linecache
 from scipy.linalg import sqrtm
 from .simulator import projectorOnto, measure
  
-
-
 
 def generate_dataset(target_state, projectors_cnt, measurements_cnt, noise=0, shuffle=True):
     dim = target_state.shape[0]
@@ -37,3 +37,20 @@ def fidelity(state_1, state_2):
     state_1_sqrt = sqrtm(state_1)
     F = np.dot(np.dot(state_1_sqrt, state_2), state_1_sqrt)
     return (np.trace(sqrtm(F)) ** 2).real
+
+
+def read_data(path):
+    target_state_string = linecache.getline(path, 3)[16:-2]
+    target_state_raw = np.array(target_state_string.split(), dtype=np.float32)
+    target_state = projectorOnto(target_state_raw[::2] + 1j * target_state_raw[1::2])
+
+    df = pd.read_csv(path, skiprows=4, delim_whitespace=True, header=None)
+    total_ticks = df[0].values[-1]
+    train_y = df[1].values / total_ticks
+
+    psi_list = df.iloc[:, 2:].values[:, ::2] + 1j * df.iloc[:, 2:].values[:, 1::2]
+    train_X = []
+    for psi in psi_list:
+        proj = projectorOnto(psi)
+        train_X.append(proj)
+    return target_state, np.array(train_X), train_y
