@@ -46,7 +46,7 @@ def read_data(path):
 
     df = pd.read_csv(path, skiprows=4, delim_whitespace=True, header=None)
     total_ticks = df[0].values[-1]
-    train_y = df[1].values / total_ticks
+    train_y = np.clip(df[1].values * df.shape[0] / total_ticks, 0, 1)
 
     psi_list = df.iloc[:, 2:].values[:, ::2] + 1j * df.iloc[:, 2:].values[:, 1::2]
     train_X = []
