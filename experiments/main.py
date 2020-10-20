@@ -16,6 +16,7 @@ RESULTS_DIR = 'results/'
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Experiments for quantum learning')
+    parser.add_argument('experiment_id', type=int, help='Experiment id')
     parser.add_argument('executions_cnt', type=int,
                         help='Number of executions to run')
     parser.add_argument('algorithm', type=str, choices=['meg', 'dd_meg', 'lptn', 'cholesky'])
@@ -64,7 +65,6 @@ if __name__ == '__main__':
                  'lptn': LPTN,
                  'cholesky': Cholesky
                  }[args.algorithm](n_qubits, rho, **kwargs)
-    exp_id = len(os.listdir(RESULTS_DIR))
 
     for _ in trange(args.executions_cnt):
         start_ts = time.time()
@@ -78,7 +78,7 @@ if __name__ == '__main__':
         gc.collect()
         rho, n_qubits, train_X, train_y = load_data()
 
-    with open(f'{RESULTS_DIR}/{exp_id}.json', 'w') as f:
+    with open(f'{RESULTS_DIR}/{args.experiment_id}.json', 'w') as f:
         f.write(json.dumps({
             'results': results,
             'args': vars(args)
