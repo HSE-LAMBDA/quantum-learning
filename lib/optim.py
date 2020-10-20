@@ -264,3 +264,4 @@ def tn_optimize(tensors, loss_function, eval_function, optimizer=Ranger, tol=1e-
             print(f' <- converged ({converged_msg})')
         else:
             print(' <- max_iter was reached: {}'.format(max_iter))
+    return iter, -best_eval_loss, best_iter

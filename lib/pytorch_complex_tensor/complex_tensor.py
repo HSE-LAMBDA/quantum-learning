@@ -37,7 +37,6 @@ Supported ops:
 >> print(c[0:1, 1:-1])
 """
 
-
 class ComplexTensor(torch.Tensor):
 
     @staticmethod
@@ -288,6 +287,44 @@ class ComplexTensor(torch.Tensor):
 
         return self.__graph_copy__(real, imag)
 
+    def bmm(self, other):
+        real = self.real.clone()
+        imag = self.imag.clone()
+
+        if len(other.shape) == 3:
+
+            # given a real tensor
+            if isinstance(other, torch.Tensor) and type(other) is not ComplexTensor:
+                real = real.bmm(other)
+                imag = imag.bmm(other)
+
+            # given a complex tensor
+            elif type(other) is ComplexTensor:
+                ac = real.bmm(other.real)
+                bd = imag.bmm(other.imag)
+                ad = real.bmm(other.imag)
+                bc = imag.bmm(other.real)
+                real = ac - bd
+                imag = ad + bc
+            return self.__graph_copy__(real, imag)
+        else:
+            def bmm_(a, b):
+                return torch.einsum('bij,jk->bik', a, b)
+
+            # given a real tensor
+            if isinstance(other, torch.Tensor) and type(other) is not ComplexTensor:
+                real = bmm_(real, other)
+                imag = bmm_(imag, other)
+
+            # given a complex tensor
+            elif type(other) is ComplexTensor:
+                ac = bmm_(real, other.real)
+                bd = bmm_(imag, other.imag)
+                ad = bmm_(real, other.imag)
+                bc = bmm_(imag, other.real)
+                real = ac - bd
+                imag = ad + bc
+            return real, imag
     def t(self, conjugate=False):
         real = self.real.t()
         if conjugate: imag = -1.0*self.imag.t()
@@ -368,4 +405,3 @@ class ComplexTensor(torch.Tensor):
         c = self.imag[item]
 
         return self.__graph_copy__(r, c)
-

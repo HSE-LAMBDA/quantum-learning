@@ -3,7 +3,10 @@ import pandas as pd
 import linecache
 from scipy.linalg import sqrtm
 from .simulator import projectorOnto, measure
- 
+import os
+import subprocess as sp
+import psutil
+
 
 def generate_dataset(target_state, projectors_cnt, measurements_cnt, noise=0, shuffle=True):
     dim = target_state.shape[0]
@@ -54,3 +57,16 @@ def read_data(path):
         proj = projectorOnto(psi)
         train_X.append(proj)
     return target_state, np.array(train_X), train_y
+
+
+def get_gpu_memory_free():
+  _output_to_list = lambda x: x.decode('ascii').split('\n')[:-1]
+  COMMAND = "nvidia-smi --query-gpu=memory.free --format=csv"
+  memory_free_info = _output_to_list(sp.check_output(COMMAND.split()))[1:]
+  memory_free_values = [int(x.split()[0]) for i, x in enumerate(memory_free_info)]
+  return memory_free_values # in Mb
+
+
+def get_ram_memory_usage():
+    process = psutil.Process(os.getpid())
+    return process.memory_info().rss / (1024**2)  # in Mb
