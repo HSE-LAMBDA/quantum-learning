@@ -25,18 +25,18 @@ if __name__ == '__main__':
     parser.add_argument('--projectors_cnt', type=int, default=1000)
     parser.add_argument('--measurements_cnt', type=int, default=1000)
     parser.add_argument('--max_iters', type=int, default=10000)
-    parser.add_argument('--patience', type=int, default=400)
-    parser.add_argument('--eta', type=float, default=0.01)
+    parser.add_argument('--patience', type=int, default=2000)
+    parser.add_argument('--eta', type=float)
     parser.add_argument('--file', type=str, help='Used only in with real data')
     parser.add_argument('--tensor_rank', type=int, help='Tensor rank for LPTN algorithm')
     args = parser.parse_args()
 
     kwargs = {
         'max_iters': args.max_iters,
-        'patience': args.patience,
-        'eta': args.eta,  # learning rate,
-        'tensor_rank': args.tensor_rank
+        'patience': args.patience
     }
+    if args.algorithm == 'lptn': kwargs['tensor_rank']= args.tensor_rank
+    if args.eta: kwargs['eta'] = args.eta # learning rate
 
     def load_data():
         if args.data_type == 'real':

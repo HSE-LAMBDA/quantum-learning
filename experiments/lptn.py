@@ -12,7 +12,7 @@ class LPTN(AbstractAlgorithm):
     Locally purified tensor networks
     """
     def __init__(self, n_qubits: int, rho: Optional[np.array], max_iters: int,
-                 patience: int, eta: float, tensor_rank: Optional[int] = None,
+                 patience: int, eta: float=1e-3, tensor_rank: Optional[int] = None,
                  batch_size: int = 100,
                  device: str = 'auto'):
         super().__init__(n_qubits, rho, max_iters, patience)
@@ -35,7 +35,7 @@ class LPTN(AbstractAlgorithm):
     def cholesky(sigma_real, sigma_imag):
         sigma_real, sigma_imag = sigma_real.dot(sigma_real, k=1) + sigma_imag.dot(sigma_imag, k=1), sigma_real.dot(
             sigma_imag, k=1) - sigma_imag.dot(sigma_real, k=1)
-        trace = sum([sigma_real[i, i] for i in range(sigma_real.shape[0])])
+        trace = LPTN.trace(sigma_real)
         sigma_real, sigma_imag = [x / trace for x in [sigma_real, sigma_imag]]
         return sigma_real, sigma_imag
 
