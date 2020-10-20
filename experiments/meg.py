@@ -55,7 +55,6 @@ class DDMEG(MEG):
     Adaptive MEG with doubling trick, arXiv:2006.01013
     """
     def fit(self, train_X, train_y):
-        sigma_true = tf.Variable(self.rho, dtype=tf.complex128)
         x_var = tf.Variable(train_X, dtype=tf.complex128)
         y_var = tf.Variable(train_y, dtype=tf.complex128)
 
@@ -64,7 +63,7 @@ class DDMEG(MEG):
 
         t = trange(self.max_iters, desc='Fidelity: 0', leave=True)
         for _ in t:
-            self.fit_step_(train_X, train_y)
+            self.fit_step_(x_var, y_var)
 
             trace = tf.linalg.trace(tf.matmul(x_var, self.sigma))
             loss = (y_var - trace) ** 2

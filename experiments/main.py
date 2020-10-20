@@ -22,7 +22,7 @@ if __name__ == '__main__':
     parser.add_argument('--n_qubits', type=int,
                         help='Number of qubits')
     parser.add_argument('--data_type', type=str, choices=['pure', 'mixed', 'real'], default='real')
-    parser.add_argument('--projectors_cnt', type=int, default=1000)
+    parser.add_argument('--projectors_cnt', type=int, default=10000)
     parser.add_argument('--measurements_cnt', type=int, default=1000)
     parser.add_argument('--max_iters', type=int, default=10000)
     parser.add_argument('--patience', type=int, default=2000)
