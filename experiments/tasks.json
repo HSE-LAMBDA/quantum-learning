@@ -1880,383 +1880,438 @@
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
-        "id": 242
+        "id": 242,
+        "n_qubits": 4
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
-        "id": 243
+        "id": 243,
+        "n_qubits": 4
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
-        "id": 244
+        "id": 244,
+        "n_qubits": 4
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
-        "id": 245
+        "id": 245,
+        "n_qubits": 4
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
-        "id": 246
+        "id": 246,
+        "n_qubits": 4
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
-        "id": 247
+        "id": 247,
+        "n_qubits": 4
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
-        "id": 248
+        "id": 248,
+        "n_qubits": 1
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
-        "id": 249
+        "id": 249,
+        "n_qubits": 1
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
-        "id": 250
+        "id": 250,
+        "n_qubits": 1
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim8_0.dat",
-        "id": 251
+        "id": 251,
+        "n_qubits": 3
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim8_0.dat",
-        "id": 252
+        "id": 252,
+        "n_qubits": 3
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim8_0.dat",
-        "id": 253
+        "id": 253,
+        "n_qubits": 3
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim16_0.dat",
-        "id": 254
+        "id": 254,
+        "n_qubits": 4
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim16_0.dat",
-        "id": 255
+        "id": 255,
+        "n_qubits": 4
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim16_0.dat",
-        "id": 256
+        "id": 256,
+        "n_qubits": 4
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
-        "id": 257
+        "id": 257,
+        "n_qubits": 3
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
-        "id": 258
+        "id": 258,
+        "n_qubits": 3
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
-        "id": 259
+        "id": 259,
+        "n_qubits": 3
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
-        "id": 260
+        "id": 260,
+        "n_qubits": 3
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
-        "id": 261
+        "id": 261,
+        "n_qubits": 3
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
-        "id": 262
+        "id": 262,
+        "n_qubits": 3
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim16_0.dat",
-        "id": 263
+        "id": 263,
+        "n_qubits": 4
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim16_0.dat",
-        "id": 264
+        "id": 264,
+        "n_qubits": 4
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim16_0.dat",
-        "id": 265
+        "id": 265,
+        "n_qubits": 4
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim32_1.dat",
-        "id": 266
+        "id": 266,
+        "n_qubits": 5
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim32_1.dat",
-        "id": 267
+        "id": 267,
+        "n_qubits": 5
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim32_1.dat",
-        "id": 268
+        "id": 268,
+        "n_qubits": 5
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
-        "id": 269
+        "id": 269,
+        "n_qubits": 4
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
-        "id": 270
+        "id": 270,
+        "n_qubits": 4
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
-        "id": 271
+        "id": 271,
+        "n_qubits": 4
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_haar_dim4_0.dat",
-        "id": 272
+        "id": 272,
+        "n_qubits": 2
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_haar_dim4_0.dat",
-        "id": 273
+        "id": 273,
+        "n_qubits": 2
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_haar_dim4_0.dat",
-        "id": 274
+        "id": 274,
+        "n_qubits": 2
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
-        "id": 275
+        "id": 275,
+        "n_qubits": 5
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
-        "id": 276
+        "id": 276,
+        "n_qubits": 5
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
-        "id": 277
+        "id": 277,
+        "n_qubits": 5
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
-        "id": 278
+        "id": 278,
+        "n_qubits": 2
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
-        "id": 279
+        "id": 279,
+        "n_qubits": 2
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
-        "id": 280
+        "id": 280,
+        "n_qubits": 2
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim32_0.dat",
-        "id": 281
+        "id": 281,
+        "n_qubits": 5
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim32_0.dat",
-        "id": 282
+        "id": 282,
+        "n_qubits": 5
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim32_0.dat",
-        "id": 283
+        "id": 283,
+        "n_qubits": 5
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim16_1.dat",
-        "id": 284
+        "id": 284,
+        "n_qubits": 4
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim16_1.dat",
-        "id": 285
+        "id": 285,
+        "n_qubits": 4
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_haar_dim16_1.dat",
-        "id": 286
+        "id": 286,
+        "n_qubits": 4
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_haar_dim2_0.dat",
-        "id": 287
+        "id": 287,
+        "n_qubits": 1
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_haar_dim2_0.dat",
-        "id": 288
+        "id": 288,
+        "n_qubits": 1
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2019_12_29_haar_dim2_0.dat",
-        "id": 289
+        "id": 289,
+        "n_qubits": 1
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim8_2.dat",
-        "id": 290
+        "id": 290,
+        "n_qubits": 3
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim8_2.dat",
-        "id": 291
+        "id": 291,
+        "n_qubits": 3
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_13_haar_dim8_2.dat",
-        "id": 292
+        "id": 292,
+        "n_qubits": 3
     },
     {
         "algorithm": "meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
-        "id": 293
+        "id": 293,
+        "n_qubits": 5
     },
     {
         "algorithm": "dd_meg",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
-        "id": 294
+        "id": 294,
+        "n_qubits": 5
     },
     {
         "algorithm": "cholesky",
         "data_type": "real",
         "executions_cnt": 1,
         "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
-        "id": 295
+        "id": 295,
+        "n_qubits": 5
     },
     {
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 296,
         "n_qubits": 4,
         "tensor_rank": 64
@@ -2265,6 +2320,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 297,
         "n_qubits": 4,
         "tensor_rank": 1
@@ -2273,6 +2329,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 298,
         "n_qubits": 4,
         "tensor_rank": 2
@@ -2281,6 +2338,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 299,
         "n_qubits": 4,
         "tensor_rank": 4
@@ -2289,6 +2347,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 300,
         "n_qubits": 4,
         "tensor_rank": 6
@@ -2297,6 +2356,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 301,
         "n_qubits": 4,
         "tensor_rank": 40
@@ -2305,6 +2365,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 302,
         "n_qubits": 4,
         "tensor_rank": 10
@@ -2313,6 +2374,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 303,
         "n_qubits": 4,
         "tensor_rank": 16
@@ -2321,6 +2383,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_1.dat",
         "id": 304,
         "n_qubits": 4,
         "tensor_rank": 25
@@ -2329,6 +2392,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 305,
         "n_qubits": 4,
         "tensor_rank": 64
@@ -2337,6 +2401,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 306,
         "n_qubits": 4,
         "tensor_rank": 1
@@ -2345,6 +2410,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 307,
         "n_qubits": 4,
         "tensor_rank": 2
@@ -2353,6 +2419,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 308,
         "n_qubits": 4,
         "tensor_rank": 4
@@ -2361,6 +2428,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 309,
         "n_qubits": 4,
         "tensor_rank": 6
@@ -2369,6 +2437,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 310,
         "n_qubits": 4,
         "tensor_rank": 40
@@ -2377,6 +2446,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 311,
         "n_qubits": 4,
         "tensor_rank": 10
@@ -2385,6 +2455,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 312,
         "n_qubits": 4,
         "tensor_rank": 16
@@ -2393,6 +2464,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim16_0.dat",
         "id": 313,
         "n_qubits": 4,
         "tensor_rank": 25
@@ -2401,6 +2473,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 314,
         "n_qubits": 1,
         "tensor_rank": 1
@@ -2409,6 +2482,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 315,
         "n_qubits": 1,
         "tensor_rank": 2
@@ -2417,6 +2491,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 316,
         "n_qubits": 1,
         "tensor_rank": 3
@@ -2425,6 +2500,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 317,
         "n_qubits": 1,
         "tensor_rank": 4
@@ -2433,6 +2509,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 318,
         "n_qubits": 1,
         "tensor_rank": 5
@@ -2441,6 +2518,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 319,
         "n_qubits": 1,
         "tensor_rank": 6
@@ -2449,6 +2527,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim2_0.dat",
         "id": 320,
         "n_qubits": 1,
         "tensor_rank": 8
@@ -2457,6 +2536,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 321,
         "n_qubits": 3,
         "tensor_rank": 32
@@ -2465,6 +2545,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 322,
         "n_qubits": 3,
         "tensor_rank": 1
@@ -2473,6 +2554,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 323,
         "n_qubits": 3,
         "tensor_rank": 2
@@ -2481,6 +2563,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 324,
         "n_qubits": 3,
         "tensor_rank": 3
@@ -2489,6 +2572,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 325,
         "n_qubits": 3,
         "tensor_rank": 4
@@ -2497,6 +2581,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 326,
         "n_qubits": 3,
         "tensor_rank": 6
@@ -2505,6 +2590,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 327,
         "n_qubits": 3,
         "tensor_rank": 10
@@ -2513,6 +2599,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 328,
         "n_qubits": 3,
         "tensor_rank": 14
@@ -2521,6 +2608,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_0.dat",
         "id": 329,
         "n_qubits": 3,
         "tensor_rank": 21
@@ -2529,6 +2617,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 330,
         "n_qubits": 4,
         "tensor_rank": 64
@@ -2537,6 +2626,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 331,
         "n_qubits": 4,
         "tensor_rank": 1
@@ -2545,6 +2635,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 332,
         "n_qubits": 4,
         "tensor_rank": 2
@@ -2553,6 +2644,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 333,
         "n_qubits": 4,
         "tensor_rank": 4
@@ -2561,6 +2653,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 334,
         "n_qubits": 4,
         "tensor_rank": 6
@@ -2569,6 +2662,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 335,
         "n_qubits": 4,
         "tensor_rank": 40
@@ -2577,6 +2671,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 336,
         "n_qubits": 4,
         "tensor_rank": 10
@@ -2585,6 +2680,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 337,
         "n_qubits": 4,
         "tensor_rank": 16
@@ -2593,6 +2689,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim16_0.dat",
         "id": 338,
         "n_qubits": 4,
         "tensor_rank": 25
@@ -2601,6 +2698,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 339,
         "n_qubits": 3,
         "tensor_rank": 32
@@ -2609,6 +2707,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 340,
         "n_qubits": 3,
         "tensor_rank": 1
@@ -2617,6 +2716,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 341,
         "n_qubits": 3,
         "tensor_rank": 2
@@ -2625,6 +2725,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 342,
         "n_qubits": 3,
         "tensor_rank": 3
@@ -2633,6 +2734,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 343,
         "n_qubits": 3,
         "tensor_rank": 4
@@ -2641,6 +2743,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 344,
         "n_qubits": 3,
         "tensor_rank": 6
@@ -2649,6 +2752,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 345,
         "n_qubits": 3,
         "tensor_rank": 10
@@ -2657,6 +2761,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 346,
         "n_qubits": 3,
         "tensor_rank": 14
@@ -2665,6 +2770,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_0.dat",
         "id": 347,
         "n_qubits": 3,
         "tensor_rank": 21
@@ -2673,6 +2779,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 348,
         "n_qubits": 3,
         "tensor_rank": 32
@@ -2681,6 +2788,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 349,
         "n_qubits": 3,
         "tensor_rank": 1
@@ -2689,6 +2797,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 350,
         "n_qubits": 3,
         "tensor_rank": 2
@@ -2697,6 +2806,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 351,
         "n_qubits": 3,
         "tensor_rank": 3
@@ -2705,6 +2815,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 352,
         "n_qubits": 3,
         "tensor_rank": 4
@@ -2713,6 +2824,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 353,
         "n_qubits": 3,
         "tensor_rank": 6
@@ -2721,6 +2833,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 354,
         "n_qubits": 3,
         "tensor_rank": 10
@@ -2729,6 +2842,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 355,
         "n_qubits": 3,
         "tensor_rank": 14
@@ -2737,6 +2851,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_stabilizer_dim8_2.dat",
         "id": 356,
         "n_qubits": 3,
         "tensor_rank": 21
@@ -2745,6 +2860,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 357,
         "n_qubits": 4,
         "tensor_rank": 64
@@ -2753,6 +2869,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 358,
         "n_qubits": 4,
         "tensor_rank": 1
@@ -2761,6 +2878,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 359,
         "n_qubits": 4,
         "tensor_rank": 2
@@ -2769,6 +2887,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 360,
         "n_qubits": 4,
         "tensor_rank": 4
@@ -2777,6 +2896,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 361,
         "n_qubits": 4,
         "tensor_rank": 6
@@ -2785,6 +2905,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 362,
         "n_qubits": 4,
         "tensor_rank": 40
@@ -2793,6 +2914,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 363,
         "n_qubits": 4,
         "tensor_rank": 10
@@ -2801,6 +2923,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 364,
         "n_qubits": 4,
         "tensor_rank": 16
@@ -2809,6 +2932,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_0.dat",
         "id": 365,
         "n_qubits": 4,
         "tensor_rank": 25
@@ -2817,6 +2941,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 366,
         "n_qubits": 5,
         "tensor_rank": 128
@@ -2825,6 +2950,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 367,
         "n_qubits": 5,
         "tensor_rank": 1
@@ -2833,6 +2959,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 368,
         "n_qubits": 5,
         "tensor_rank": 2
@@ -2841,6 +2968,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 369,
         "n_qubits": 5,
         "tensor_rank": 5
@@ -2849,6 +2977,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 370,
         "n_qubits": 5,
         "tensor_rank": 8
@@ -2857,6 +2986,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 371,
         "n_qubits": 5,
         "tensor_rank": 74
@@ -2865,6 +2995,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 372,
         "n_qubits": 5,
         "tensor_rank": 43
@@ -2873,6 +3004,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 373,
         "n_qubits": 5,
         "tensor_rank": 14
@@ -2881,6 +3013,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_1.dat",
         "id": 374,
         "n_qubits": 5,
         "tensor_rank": 25
@@ -2889,6 +3022,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 375,
         "n_qubits": 4,
         "tensor_rank": 64
@@ -2897,6 +3031,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 376,
         "n_qubits": 4,
         "tensor_rank": 1
@@ -2905,6 +3040,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 377,
         "n_qubits": 4,
         "tensor_rank": 2
@@ -2913,6 +3049,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 378,
         "n_qubits": 4,
         "tensor_rank": 4
@@ -2921,6 +3058,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 379,
         "n_qubits": 4,
         "tensor_rank": 6
@@ -2929,6 +3067,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 380,
         "n_qubits": 4,
         "tensor_rank": 40
@@ -2937,6 +3076,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 381,
         "n_qubits": 4,
         "tensor_rank": 10
@@ -2945,6 +3085,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 382,
         "n_qubits": 4,
         "tensor_rank": 16
@@ -2953,6 +3094,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim16_0.dat",
         "id": 383,
         "n_qubits": 4,
         "tensor_rank": 25
@@ -2961,6 +3103,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 384,
         "n_qubits": 2,
         "tensor_rank": 1
@@ -2969,6 +3112,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 385,
         "n_qubits": 2,
         "tensor_rank": 2
@@ -2977,6 +3121,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 386,
         "n_qubits": 2,
         "tensor_rank": 3
@@ -2985,6 +3130,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 387,
         "n_qubits": 2,
         "tensor_rank": 4
@@ -2993,6 +3139,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 388,
         "n_qubits": 2,
         "tensor_rank": 6
@@ -3001,6 +3148,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 389,
         "n_qubits": 2,
         "tensor_rank": 8
@@ -3009,6 +3157,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 390,
         "n_qubits": 2,
         "tensor_rank": 11
@@ -3017,6 +3166,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim4_0.dat",
         "id": 391,
         "n_qubits": 2,
         "tensor_rank": 16
@@ -3025,6 +3175,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 392,
         "n_qubits": 5,
         "tensor_rank": 128
@@ -3033,6 +3184,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 393,
         "n_qubits": 5,
         "tensor_rank": 1
@@ -3041,6 +3193,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 394,
         "n_qubits": 5,
         "tensor_rank": 2
@@ -3049,6 +3202,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 395,
         "n_qubits": 5,
         "tensor_rank": 5
@@ -3057,6 +3211,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 396,
         "n_qubits": 5,
         "tensor_rank": 8
@@ -3065,6 +3220,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 397,
         "n_qubits": 5,
         "tensor_rank": 74
@@ -3073,6 +3229,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 398,
         "n_qubits": 5,
         "tensor_rank": 43
@@ -3081,6 +3238,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 399,
         "n_qubits": 5,
         "tensor_rank": 14
@@ -3089,6 +3247,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_1.dat",
         "id": 400,
         "n_qubits": 5,
         "tensor_rank": 25
@@ -3097,6 +3256,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 401,
         "n_qubits": 2,
         "tensor_rank": 1
@@ -3105,6 +3265,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 402,
         "n_qubits": 2,
         "tensor_rank": 2
@@ -3113,6 +3274,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 403,
         "n_qubits": 2,
         "tensor_rank": 3
@@ -3121,6 +3283,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 404,
         "n_qubits": 2,
         "tensor_rank": 4
@@ -3129,6 +3292,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 405,
         "n_qubits": 2,
         "tensor_rank": 6
@@ -3137,6 +3301,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 406,
         "n_qubits": 2,
         "tensor_rank": 8
@@ -3145,6 +3310,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 407,
         "n_qubits": 2,
         "tensor_rank": 11
@@ -3153,6 +3319,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_stabilizer_dim4_0.dat",
         "id": 408,
         "n_qubits": 2,
         "tensor_rank": 16
@@ -3161,6 +3328,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 409,
         "n_qubits": 5,
         "tensor_rank": 128
@@ -3169,6 +3337,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 410,
         "n_qubits": 5,
         "tensor_rank": 1
@@ -3177,6 +3346,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 411,
         "n_qubits": 5,
         "tensor_rank": 2
@@ -3185,6 +3355,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 412,
         "n_qubits": 5,
         "tensor_rank": 5
@@ -3193,6 +3364,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 413,
         "n_qubits": 5,
         "tensor_rank": 8
@@ -3201,6 +3373,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 414,
         "n_qubits": 5,
         "tensor_rank": 74
@@ -3209,6 +3382,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 415,
         "n_qubits": 5,
         "tensor_rank": 43
@@ -3217,6 +3391,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 416,
         "n_qubits": 5,
         "tensor_rank": 14
@@ -3225,6 +3400,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim32_0.dat",
         "id": 417,
         "n_qubits": 5,
         "tensor_rank": 25
@@ -3233,6 +3409,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 418,
         "n_qubits": 4,
         "tensor_rank": 64
@@ -3241,6 +3418,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 419,
         "n_qubits": 4,
         "tensor_rank": 1
@@ -3249,6 +3427,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 420,
         "n_qubits": 4,
         "tensor_rank": 2
@@ -3257,6 +3436,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 421,
         "n_qubits": 4,
         "tensor_rank": 4
@@ -3265,6 +3445,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 422,
         "n_qubits": 4,
         "tensor_rank": 6
@@ -3273,6 +3454,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 423,
         "n_qubits": 4,
         "tensor_rank": 40
@@ -3281,6 +3463,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 424,
         "n_qubits": 4,
         "tensor_rank": 10
@@ -3289,6 +3472,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 425,
         "n_qubits": 4,
         "tensor_rank": 16
@@ -3297,6 +3481,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_haar_dim16_1.dat",
         "id": 426,
         "n_qubits": 4,
         "tensor_rank": 25
@@ -3305,6 +3490,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 427,
         "n_qubits": 1,
         "tensor_rank": 1
@@ -3313,6 +3499,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 428,
         "n_qubits": 1,
         "tensor_rank": 2
@@ -3321,6 +3508,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 429,
         "n_qubits": 1,
         "tensor_rank": 3
@@ -3329,6 +3517,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 430,
         "n_qubits": 1,
         "tensor_rank": 4
@@ -3337,6 +3526,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 431,
         "n_qubits": 1,
         "tensor_rank": 5
@@ -3345,6 +3535,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 432,
         "n_qubits": 1,
         "tensor_rank": 6
@@ -3353,6 +3544,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2019_12_29_haar_dim2_0.dat",
         "id": 433,
         "n_qubits": 1,
         "tensor_rank": 8
@@ -3361,6 +3553,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 434,
         "n_qubits": 3,
         "tensor_rank": 32
@@ -3369,6 +3562,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 435,
         "n_qubits": 3,
         "tensor_rank": 1
@@ -3377,6 +3571,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 436,
         "n_qubits": 3,
         "tensor_rank": 2
@@ -3385,6 +3580,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 437,
         "n_qubits": 3,
         "tensor_rank": 3
@@ -3393,6 +3589,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 438,
         "n_qubits": 3,
         "tensor_rank": 4
@@ -3401,6 +3598,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 439,
         "n_qubits": 3,
         "tensor_rank": 6
@@ -3409,6 +3607,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 440,
         "n_qubits": 3,
         "tensor_rank": 10
@@ -3417,6 +3616,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 441,
         "n_qubits": 3,
         "tensor_rank": 14
@@ -3425,6 +3625,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_13_haar_dim8_2.dat",
         "id": 442,
         "n_qubits": 3,
         "tensor_rank": 21
@@ -3433,6 +3634,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 443,
         "n_qubits": 5,
         "tensor_rank": 128
@@ -3441,6 +3643,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 444,
         "n_qubits": 5,
         "tensor_rank": 1
@@ -3449,6 +3652,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 445,
         "n_qubits": 5,
         "tensor_rank": 2
@@ -3457,6 +3661,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 446,
         "n_qubits": 5,
         "tensor_rank": 5
@@ -3465,6 +3670,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 447,
         "n_qubits": 5,
         "tensor_rank": 8
@@ -3473,6 +3679,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 448,
         "n_qubits": 5,
         "tensor_rank": 74
@@ -3481,6 +3688,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 449,
         "n_qubits": 5,
         "tensor_rank": 43
@@ -3489,6 +3697,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 450,
         "n_qubits": 5,
         "tensor_rank": 14
@@ -3497,6 +3706,7 @@
         "algorithm": "lptn",
         "data_type": "real",
         "executions_cnt": 1,
+        "file": "../data/2020_01_29_stabilizer_dim32_0.dat",
         "id": 451,
         "n_qubits": 5,
         "tensor_rank": 25
