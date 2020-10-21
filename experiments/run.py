@@ -12,8 +12,9 @@ def run_task(task):
         pass
     else:
         cmd = ['python', 'main.py', str(task['id']), str(task['executions_cnt']),
-                    str(task['algorithm']), '--n_qubits', str(task['n_qubits']), '--data_type', str(task['data_type'])]
+                    task['algorithm'], '--n_qubits', str(task['n_qubits']), '--data_type', task['data_type']]
         if 'file' in task: cmd = cmd + ['--file', task['file']]
+        if 'tensor_rank' in task: cmd = cmd + ['--tensor_rank', str(task['tensor_rank'])]
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
         p.wait()
 

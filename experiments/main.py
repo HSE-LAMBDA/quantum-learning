@@ -55,11 +55,7 @@ if __name__ == '__main__':
 
     rho, n_qubits, train_X, train_y = load_data()
 
-    gpu_mem_free = lambda: sum(lib.utils.get_gpu_memory_free())
-
     results = []
-    gpu_memory_before = gpu_mem_free()
-    ram_memory_used_before = lib.utils.get_ram_memory_usage()
     algorithm = {'meg': MEG,
                  'dd_meg': DDMEG,
                  'lptn': LPTN,
@@ -71,8 +67,8 @@ if __name__ == '__main__':
         algorithm.fit(train_X, train_y)
         results.append({'Fidelity': algorithm.score(), 'time': time.time() - start_ts,
                         'num_steps': algorithm.n_iters,
-                        'gpu_mem': gpu_memory_before - gpu_mem_free(),
-                        'ram_mem': lib.utils.get_ram_memory_usage() - ram_memory_used_before})
+                        'gpu_mem': lib.utils.get_gpu_memory_usage(),
+                        'ram_mem': lib.utils.get_ram_memory_usage()})
         algorithm.reset()
         del rho, train_X, train_y
         gc.collect()

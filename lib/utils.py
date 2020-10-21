@@ -6,6 +6,7 @@ from .simulator import projectorOnto, measure
 import os
 import subprocess as sp
 import psutil
+import re
 
 
 def generate_dataset(target_state, projectors_cnt, measurements_cnt, noise=0, shuffle=True):
@@ -59,12 +60,12 @@ def read_data(path):
     return target_state, np.array(train_X), train_y
 
 
-def get_gpu_memory_free():
-  _output_to_list = lambda x: x.decode('ascii').split('\n')[:-1]
-  COMMAND = "nvidia-smi --query-gpu=memory.free --format=csv"
-  memory_free_info = _output_to_list(sp.check_output(COMMAND.split()))[1:]
-  memory_free_values = [int(x.split()[0]) for i, x in enumerate(memory_free_info)]
-  return memory_free_values # in Mb
+def get_gpu_memory_usage(pid=None):
+    if pid is None: pid=os.getpid()
+    output = sp.run(['nvidia-smi'], stdout=sp.PIPE).stdout.decode()
+    for line in output.split('\n'):
+        res = re.findall(f'.*\d*\s*{pid}\s*[CG]\s*.*python\s*(\d*)MiB.*', line)
+        if res: return int(res[0]) # Mb
 
 
 def get_ram_memory_usage():
