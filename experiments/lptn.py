@@ -13,7 +13,7 @@ class LPTN(AbstractAlgorithm):
     """
     def __init__(self, n_qubits: int, rho: Optional[np.array], max_iters: int,
                  patience: int, eta: float=1e-3, tensor_rank: Optional[int] = None,
-                 batch_size: int = 100,
+                 batch_size: int = 32,
                  device: str = 'auto'):
         super().__init__(n_qubits, rho, max_iters, patience)
         self.eta = eta
@@ -32,19 +32,19 @@ class LPTN(AbstractAlgorithm):
                                             [np.real(sigma), np.imag(sigma)]]
 
     @staticmethod
+    def trace(tensor):
+        if len(tensor.shape) == 2:
+            return sum([tensor[i, i] for i in range(tensor.shape[0])])
+        if len(tensor.shape) == 3:
+            return sum([tensor[:, i, i] for i in range(tensor.shape[1])])
+
+    @staticmethod
     def cholesky(sigma_real, sigma_imag):
         sigma_real, sigma_imag = sigma_real.dot(sigma_real, k=1) + sigma_imag.dot(sigma_imag, k=1), sigma_real.dot(
             sigma_imag, k=1) - sigma_imag.dot(sigma_real, k=1)
         trace = LPTN.trace(sigma_real)
         sigma_real, sigma_imag = [x / trace for x in [sigma_real, sigma_imag]]
         return sigma_real, sigma_imag
-
-    @staticmethod
-    def trace(tensor):
-        if len(tensor.shape) == 2:
-            return sum([tensor[i, i] for i in range(tensor.shape[0])])
-        if len(tensor.shape) == 3:
-            return sum([tensor[:, i, i] for i in range(tensor.shape[1])])
 
     def fit(self, train_X, train_y):
         def loss(sigma_real, sigma_imag):
@@ -54,6 +54,7 @@ class LPTN(AbstractAlgorithm):
             for E_m, y_m in zip(train_X[idx], train_y[idx].astype('float64')):
                 E_real, E_imag = [tn.Tensor(x, device=self.device) for x in [np.real(E_m), np.imag(E_m)]]
                 res += ((E_real.dot(sigma_real) + E_imag.dot(sigma_imag) - y_m) ** 2)
+
             #     return res/(initial_trace*train_X.shape[0])
             return res
 

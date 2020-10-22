@@ -5,6 +5,7 @@ import lib
 import torch
 import numpy as np
 from typing import Optional
+import gc
 
 class Cholesky(AbstractAlgorithm):
     def __init__(self, n_qubits: int, rho: Optional[np.array], max_iters: int,
@@ -32,6 +33,9 @@ class Cholesky(AbstractAlgorithm):
         loss.backward()
         self.opt.step()
         self.opt.zero_grad()
+        del E_m, product_real
+        torch.cuda.empty_cache()
+        gc.collect()
         self.n_iters += 1
 
     def score(self):

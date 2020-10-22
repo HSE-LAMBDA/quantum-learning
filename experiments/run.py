@@ -4,7 +4,7 @@ import os
 import json
 import random
 
-N_WORKERS = 5
+N_WORKERS = 3
 RESULTS_DIR = 'results/'
 
 def run_task(task):
