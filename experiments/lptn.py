@@ -1,7 +1,9 @@
 from abstract_algorithm import AbstractAlgorithm
 import tntorch as tn
 import torch
+from torch.utils.data import TensorDataset, DataLoader
 import numpy as np
+import gc
 from typing import Optional
 import sys
 sys.path.append('../')
@@ -13,7 +15,7 @@ class LPTN(AbstractAlgorithm):
     """
     def __init__(self, n_qubits: int, rho: Optional[np.array], max_iters: int,
                  patience: int, eta: float=1e-3, tensor_rank: Optional[int] = None,
-                 batch_size: int = 32,
+                 batch_size: int = 500,
                  device: str = 'auto'):
         super().__init__(n_qubits, rho, max_iters, patience)
         self.eta = eta
@@ -30,6 +32,17 @@ class LPTN(AbstractAlgorithm):
         sigma = lib.randomMixedState(2 ** self.n_qubits)
         self.sigma_real, self.sigma_imag = [tn.Tensor(x, ranks_tt=self.tensor_rank, requires_grad=True, device=self.device) for x in
                                             [np.real(sigma), np.imag(sigma)]]
+        parameters = []
+        for t in [self.sigma_real, self.sigma_imag]:
+            if isinstance(t, tn.Tensor):
+                parameters.extend([c for c in t.cores if c.requires_grad])
+                parameters.extend([U for U in t.Us if U is not None and U.requires_grad])
+            elif t.requires_grad:
+                parameters.append(t)
+        if len(parameters) == 0:
+            raise ValueError("There are no parameters to optimize. Did you forget a requires_grad=True somewhere?")
+
+        self.opt = lib.optim.Ranger(parameters, lr=self.eta)
 
     @staticmethod
     def trace(tensor):
@@ -46,25 +59,20 @@ class LPTN(AbstractAlgorithm):
         sigma_real, sigma_imag = [x / trace for x in [sigma_real, sigma_imag]]
         return sigma_real, sigma_imag
 
-    def fit(self, train_X, train_y):
-        def loss(sigma_real, sigma_imag):
-            sigma_real, sigma_imag = LPTN.cholesky(sigma_real, sigma_imag)
-            res = 0
-            idx = np.random.choice(np.arange(train_X.shape[0]), self.batch_size)
-            for E_m, y_m in zip(train_X[idx], train_y[idx].astype('float64')):
-                E_real, E_imag = [tn.Tensor(x, device=self.device) for x in [np.real(E_m), np.imag(E_m)]]
-                res += ((E_real.dot(sigma_real) + E_imag.dot(sigma_imag) - y_m) ** 2)
-
-            #     return res/(initial_trace*train_X.shape[0])
-            return res
-
-        def eval_loss(sigma_real, sigma_imag):  # any score function can be used here
-            sigma_real_, sigma_imag_ = LPTN.cholesky(sigma_real, sigma_imag)
-            sigma = sigma_real_.torch().detach().cpu().numpy() + 1j * sigma_imag_.torch().detach().cpu().numpy()
-            return -lib.fidelity(sigma, self.rho)
-
-        self.n_iters, self.best_score, self.best_score_iter = lib.tn_optimize([self.sigma_real, self.sigma_imag], loss, eval_loss,
-                        tol=0, patience=self.patience, print_freq=10, lr=self.eta, max_iter=self.max_iters)
+    def fit_step_(self, train_X, train_y):
+        self.n_iters += 1
+        dataset = TensorDataset(*[torch.from_numpy(x.astype('float64')) for x in [np.real(train_X), np.imag(train_X), train_y]])
+        dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
+        for batch_X_real, batch_X_imag, batch_y in dataloader:
+            E_real, E_imag = [tn.Tensor(x.permute((1,2,0)), device=self.device) for x in [batch_X_real, batch_X_imag]]
+            batch_y = tn.Tensor(batch_y, device=self.device)
+            self.opt.zero_grad()
+            loss = tn.metrics.dist((E_real.dot(self.sigma_real, k=2) + E_imag.dot(self.sigma_imag, k=2)), batch_y)
+            loss.backward()
+            self.opt.step()
+            del E_real, E_imag, batch_X_real, batch_X_imag, batch_y
+            gc.collect()
+            torch.cuda.empty_cache()
 
     def score(self):
         sigma_real_, sigma_imag_ = LPTN.cholesky(self.sigma_real, self.sigma_imag)
