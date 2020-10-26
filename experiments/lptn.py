@@ -15,14 +15,17 @@ class LPTN(AbstractAlgorithm):
     """
     def __init__(self, n_qubits: int, rho: Optional[np.array], max_iters: int,
                  patience: int, eta: float=1e-3, tensor_rank: Optional[int] = None,
-                 batch_size: int = 500,
+                 batch_size: int = None,
                  device: str = 'auto'):
         super().__init__(n_qubits, rho, max_iters, patience)
         self.eta = eta
         if tensor_rank is None:
             tensor_rank = 2**n_qubits
         self.tensor_rank = tensor_rank
-        self.batch_size = batch_size
+
+        if batch_size is None: self.batch_size = int(10000/max(1, 2**(n_qubits-6)))
+        else: self.batch_size = batch_size
+
         if device == 'auto': self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         else: self.device = torch.device(device)
         self.reset()
@@ -61,18 +64,30 @@ class LPTN(AbstractAlgorithm):
 
     def fit_step_(self, train_X, train_y):
         self.n_iters += 1
-        dataset = TensorDataset(*[torch.from_numpy(x.astype('float64')) for x in [np.real(train_X), np.imag(train_X), train_y]])
-        dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
-        for batch_X_real, batch_X_imag, batch_y in dataloader:
-            E_real, E_imag = [tn.Tensor(x.permute((1,2,0)), device=self.device) for x in [batch_X_real, batch_X_imag]]
-            batch_y = tn.Tensor(batch_y, device=self.device)
+        if self.batch_size < train_X.shape[0]:
+            dataset = TensorDataset(*[torch.from_numpy(x.astype('float64')) for x in [np.real(train_X), np.imag(train_X), train_y]])
+            dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
+            for batch_X_real, batch_X_imag, batch_y in dataloader:
+                E_real, E_imag = [tn.Tensor(x.permute((1,2,0)), device=self.device) for x in [batch_X_real, batch_X_imag]]
+                batch_y = tn.Tensor(batch_y, device=self.device)
+                self.opt.zero_grad()
+                loss = tn.metrics.dist((E_real.dot(self.sigma_real, k=2) + E_imag.dot(self.sigma_imag, k=2)), batch_y)
+                loss.backward()
+                self.opt.step()
+                del E_real, E_imag, batch_X_real, batch_X_imag, batch_y
+                gc.collect()
+                torch.cuda.empty_cache()
+        else:
+            batch_y = tn.Tensor(torch.from_numpy(train_y.astype('float64')), device=self.device)
+            E_real, E_imag = [tn.Tensor(torch.from_numpy(x.astype('float64')).permute((1,2,0)), device=self.device) for x in [np.real(train_X), np.imag(train_X)]]
             self.opt.zero_grad()
             loss = tn.metrics.dist((E_real.dot(self.sigma_real, k=2) + E_imag.dot(self.sigma_imag, k=2)), batch_y)
             loss.backward()
             self.opt.step()
-            del E_real, E_imag, batch_X_real, batch_X_imag, batch_y
+            del E_real, E_imag, batch_y
             gc.collect()
             torch.cuda.empty_cache()
+
 
     def score(self):
         sigma_real_, sigma_imag_ = LPTN.cholesky(self.sigma_real, self.sigma_imag)
