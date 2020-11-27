@@ -20,9 +20,11 @@ class AbstractAlgorithm(ABC):
 
     def fit(self, train_X, train_y):
         t = trange(self.max_iters, desc='Fidelity: 0', leave=True)
+        scores_history = []
         for _ in t:
             self.fit_step_(train_X, train_y)
             score = self.score()
+            scores_history.append(score)
             if score > self.best_score:
                 self.best_score_iter = self.n_iters
                 self.best_score = score
@@ -30,6 +32,7 @@ class AbstractAlgorithm(ABC):
                 return
             t.set_description("Fidelity: %.2f" % score)
             t.refresh()  # to show immediately the update
+        return scores_history
 
     def fit_step_(self, train_X, train_y):
         raise NotImplemented
