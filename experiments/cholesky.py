@@ -20,6 +20,7 @@ class Cholesky(AbstractAlgorithm):
         self.M = lib.ComplexTensor(lib.simulator.randomMixedState(self.rho.shape[0]))
         self.M.requires_grad = True
         self.opt = lib.optim.Ranger([self.M], lr=self.eta)
+        super(Cholesky, self).reset()
 
 
     def fit_step_(self, train_X, train_y):

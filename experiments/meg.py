@@ -64,7 +64,6 @@ class DDMEG(MEG):
         losses = []
 
         t = trange(self.max_iters, desc='Fidelity: 0', leave=True)
-        scores_history = []
         for _ in t:
             self.fit_step_(x_var, y_var)
 
@@ -78,7 +77,7 @@ class DDMEG(MEG):
                 losses = []
 
             score = self.score()
-            scores_history.append(score)
+            self.scores_history.append(score)
             if score > self.best_score:
                 self.best_score_iter = self.n_iters
                 self.best_score = score
@@ -86,7 +85,7 @@ class DDMEG(MEG):
                 return
             t.set_description("Fidelity: %.2f" % score)
             t.refresh()  # to show immediately the update
-        return scores_history
+        return self.scores_history
 
     def reset(self):
         super().reset()

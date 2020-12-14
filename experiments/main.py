@@ -62,10 +62,12 @@ if __name__ == '__main__':
                  'cholesky': Cholesky
                  }[args.algorithm](n_qubits, rho, **kwargs)
 
-    for _ in trange(args.executions_cnt):
+    executions_cnt = min(args.executions_cnt, 100)
+    for _ in trange(executions_cnt):
         start_ts = time.time()
         algorithm.fit(train_X, train_y)
         results.append({'Fidelity': algorithm.score(), 'time': time.time() - start_ts,
+                        'fidelities': algorithm.scores_history,
                         'num_steps': algorithm.n_iters,
                         'gpu_mem': lib.utils.get_gpu_memory_usage(),
                         'ram_mem': lib.utils.get_ram_memory_usage()})

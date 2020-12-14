@@ -8,7 +8,7 @@ N_WORKERS = 10
 RESULTS_DIR = 'results/'
 
 def run_task(task):
-    if os.path.isfile(f"{RESULTS_DIR}/{task['id']}.json") or task['n_qubits'] > 1:
+    if os.path.isfile(f"{RESULTS_DIR}/{task['id']}.json"):
         pass
     else:
         cmd = ['python', 'main.py', str(task['id']), str(task['executions_cnt']),
