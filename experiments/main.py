@@ -13,6 +13,7 @@ import json
 import os
 
 RESULTS_DIR = 'results/'
+MAX_EXECUTIONS_CNT = 100
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Experiments for quantum learning')
@@ -56,14 +57,15 @@ if __name__ == '__main__':
     rho, n_qubits, train_X, train_y = load_data()
 
     results = []
-    algorithm = {'meg': MEG,
-                 'dd_meg': DDMEG,
-                 'lptn': LPTN,
-                 'cholesky': Cholesky
-                 }[args.algorithm](n_qubits, rho, **kwargs)
 
-    executions_cnt = min(args.executions_cnt, 100)
+    executions_cnt = min(args.executions_cnt, MAX_EXECUTIONS_CNT)
     for _ in trange(executions_cnt):
+        algorithm = {'meg': MEG,
+             'dd_meg': DDMEG,
+             'lptn': LPTN,
+             'cholesky': Cholesky
+             }[args.algorithm](n_qubits, rho, **kwargs)
+
         start_ts = time.time()
         algorithm.fit(train_X, train_y)
         results.append({'Fidelity': algorithm.score(), 'time': time.time() - start_ts,
@@ -71,8 +73,7 @@ if __name__ == '__main__':
                         'num_steps': algorithm.n_iters,
                         'gpu_mem': lib.utils.get_gpu_memory_usage(),
                         'ram_mem': lib.utils.get_ram_memory_usage()})
-        algorithm.reset()
-        del rho, train_X, train_y
+        del rho, train_X, train_y, algorithm
         gc.collect()
         rho, n_qubits, train_X, train_y = load_data()
 
