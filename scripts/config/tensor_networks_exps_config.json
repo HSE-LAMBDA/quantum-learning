@@ -1,0 +1,25 @@
+{
+    "script": "tensor_networks.py",
+    "params": [
+        {"--n-qubits": 1, "--n-projectors": 100, "--n-measurements": 1000, "--tensor-rank":  2, "--exp-name": "rank=dim"},
+        {"--n-qubits": 2, "--n-projectors": 200, "--n-measurements": 1000, "--tensor-rank":  4, "--exp-name": "rank=dim"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  8, "--exp-name": "rank=dim"},
+        {"--n-qubits": 4, "--n-projectors": 400, "--n-measurements": 1000, "--tensor-rank": 16, "--exp-name": "rank=dim"},
+        {"--n-qubits": 5, "--n-projectors": 500, "--n-measurements": 1000, "--tensor-rank": 32, "--exp-name": "rank=dim"},
+
+        {"--n-qubits": 1, "--n-projectors": 100, "--n-measurements": 1000, "--tensor-rank":  2, "--exp-name": "rank=2*qubit"},
+        {"--n-qubits": 2, "--n-projectors": 200, "--n-measurements": 1000, "--tensor-rank":  4, "--exp-name": "rank=2*qubit"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  6, "--exp-name": "rank=2*qubit"},
+        {"--n-qubits": 4, "--n-projectors": 400, "--n-measurements": 1000, "--tensor-rank":  8, "--exp-name": "rank=2*qubit"},
+        {"--n-qubits": 5, "--n-projectors": 500, "--n-measurements": 1000, "--tensor-rank": 10, "--exp-name": "rank=2*qubit"},
+
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  1, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  2, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  3, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  4, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  5, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  6, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  7, "--exp-name": "opt_rank"},
+        {"--n-qubits": 3, "--n-projectors": 300, "--n-measurements": 1000, "--tensor-rank":  8, "--exp-name": "opt_rank"}
+    ]
+}
