@@ -44,10 +44,9 @@ class MEG(AbstractAlgorithm):
         self.sigma = tf.Variable(self.sigma / tf.linalg.trace(self.sigma))
         return self.sigma
 
-    def score(self):
-        try:
-            return lib.utils.fidelity(self.sigma.numpy(), self.rho)
-        except ValueError: return 0
+    @property
+    def rho_pred(self):
+        return self.sigma.numpy()
 
     def memory_consumption(self):
         return self.sigma.size()

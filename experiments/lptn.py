@@ -89,7 +89,7 @@ class LPTN(AbstractAlgorithm):
             torch.cuda.empty_cache()
 
 
-    def score(self):
+    @property
+    def rho_pred(self):
         sigma_real_, sigma_imag_ = LPTN.cholesky(self.sigma_real, self.sigma_imag)
-        sigma = sigma_real_.torch().detach().cpu().numpy() + 1j * sigma_imag_.torch().detach().cpu().numpy()
-        return lib.utils.fidelity(sigma, self.rho)
+        return sigma_real_.torch().detach().cpu().numpy() + 1j * sigma_imag_.torch().detach().cpu().numpy()

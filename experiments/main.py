@@ -26,11 +26,13 @@ if __name__ == '__main__':
     parser.add_argument('--data_type', type=str, choices=['pure', 'mixed', 'real'], default='real')
     parser.add_argument('--projectors_cnt', type=int, default=10000)
     parser.add_argument('--measurements_cnt', type=int, default=1000)
-    parser.add_argument('--max_iters', type=int, default=10000)
-    parser.add_argument('--patience', type=int, default=2000)
+    parser.add_argument('--max_iters', type=int, default=2000)
+    parser.add_argument('--patience', type=int, default=500)
     parser.add_argument('--eta', type=float)
     parser.add_argument('--file', type=str, help='Used only in with real data')
     parser.add_argument('--tensor_rank', type=int, help='Tensor rank for LPTN algorithm')
+    parser.add_argument('--noise', type=float, default=0., help='Noise in projectors')
+    parser.add_argument('--test_size', type=int, default=10000, help='Number of projectors for test')
     args = parser.parse_args()
 
     kwargs = {
@@ -49,12 +51,13 @@ if __name__ == '__main__':
             n_qubits = args.n_qubits
             dim = 2 ** n_qubits
             rho = {'pure': lib.randomPureState, 'mixed': lib.randomMixedState}[args.data_type](dim)
-            train_X, train_y = lib.generate_dataset(rho, args.projectors_cnt, args.measurements_cnt)
-        train_y = train_y.astype('float64')
-        return rho, n_qubits, train_X, train_y
+            
+            _, train_X, train_y = lib.generate_dataset(rho, args.projectors_cnt, args.measurements_cnt, args.noise)
+        _, test_X, test_y = lib.generate_dataset(rho, args.test_size, args.measurements_cnt, args.noise)
+        return rho, n_qubits, train_X, train_y, test_X, test_y
 
 
-    rho, n_qubits, train_X, train_y = load_data()
+    rho, n_qubits, train_X, train_y, test_X, test_y = load_data()
 
     results = []
 
@@ -68,14 +71,17 @@ if __name__ == '__main__':
 
         start_ts = time.time()
         algorithm.fit(train_X, train_y)
-        results.append({'Fidelity': algorithm.score(), 'time': time.time() - start_ts,
+        results.append({'Fidelity': algorithm.fidelity(), 
+                        'ttest_train': algorithm.ttest(train_X, args.measurements_cnt).squeeze().tolist(),
+                        'ttest_test': algorithm.ttest(test_X, args.measurements_cnt).squeeze().tolist(),
+                        'time': time.time() - start_ts,
                         'fidelities': algorithm.scores_history,
                         'num_steps': algorithm.n_iters,
                         'gpu_mem': lib.utils.get_gpu_memory_usage(),
                         'ram_mem': lib.utils.get_ram_memory_usage()})
-        del rho, train_X, train_y, algorithm
+        del rho, train_X, train_y, test_X, test_y, algorithm
         gc.collect()
-        rho, n_qubits, train_X, train_y = load_data()
+        rho, n_qubits, train_X, train_y, test_X, test_y = load_data()
 
     with open(f'{RESULTS_DIR}/{args.experiment_id}.json', 'w') as f:
         f.write(json.dumps({

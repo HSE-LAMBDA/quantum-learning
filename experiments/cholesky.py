@@ -39,10 +39,11 @@ class Cholesky(AbstractAlgorithm):
         gc.collect()
         self.n_iters += 1
 
-    def score(self):
+    @property
+    def rho_pred(self):
         sigma = self.M.t(conjugate=True).mm(self.M)
         norm = torch.trace(sigma.real)
         sigma = sigma / norm
         dim = 2**self.n_qubits
-        sigma = sigma.detach().numpy()[:dim] + 1j * sigma.detach().numpy()[dim:]
-        return lib.fidelity(self.rho, sigma)
+        return sigma.detach().numpy()[:dim] + 1j * sigma.detach().numpy()[dim:]
+        

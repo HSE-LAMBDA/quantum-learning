@@ -2,6 +2,10 @@ from abc import ABC
 from tqdm import tqdm, trange
 import numpy as np
 from typing import Optional
+import sys
+sys.path.append('../')
+import lib
+
 
 class AbstractAlgorithm(ABC):
     def __init__(self, n_qubits: int, rho: Optional[np.array], max_iters: int, patience: int):
@@ -38,8 +42,25 @@ class AbstractAlgorithm(ABC):
     def fit_step_(self, train_X, train_y):
         raise NotImplemented
 
-    def score(self):
+    @property
+    def rho_pred(self):
         raise NotImplemented
+        
+    def fidelity(self):
+        try:
+            return lib.fidelity(self.rho, self.rho_pred)
+        except ValueError:
+            return 0
+    
+    def score(self):
+        return self.fidelity()
+    
+    def ttest(self, projectors, measurements_cnt):
+        y_true = lib.generate_y(self.rho, projectors, measurements_cnt)
+        y_pred = lib.generate_y(self.rho_pred, projectors, measurements_cnt)
+        ttest = y_true - y_pred
+        ttest /= np.sqrt(y_true*(1-y_true)*(2/measurements_cnt))
+        return ttest
 
     def memory_consumption(self):
         raise NotImplemented
