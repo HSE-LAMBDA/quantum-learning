@@ -8,33 +8,34 @@ import subprocess as sp
 import psutil
 import re
 
-
-def generate_dataset(target_state, projectors_cnt, measurements_cnt, noise=0, shuffle=True):
-    dim = target_state.shape[0]
-    train_X = []
-    projectors = []  # E
+def generate_projectors(dim:int, projectors_cnt:int, noise:float=0):
+    projectors_orig, projectors_noised = [], []  # E
     for _ in range(projectors_cnt):
         psi = np.random.randn(dim) + 1j * np.random.randn(dim)
         proj = projectorOnto(psi)
         proj /= np.trace(proj)
-        projectors.append(proj)
+        projectors_orig.append(proj)
 
-        if noise != 0:
-            psi = psi + np.random.normal(0, noise)
-            proj = projectorOnto(psi)
-            proj /= np.trace(proj)
-        train_X.append(proj)
+        psi = psi + np.random.normal(0, noise)
+        proj = projectorOnto(psi)
+        proj /= np.trace(proj)
+        projectors_noised.append(proj)
+        
+    return np.array(projectors_orig), np.array(projectors_noised)
 
+
+def generate_y(rho, train_X, measurements_cnt):
     train_y = []
-    for proj in projectors:
-        ones, zeroes = measure(measurements_cnt, target_state, proj)
-        train_y.append(ones / measurements_cnt)
+    for proj in train_X:
+        ones_cnt, _ = measure(measurements_cnt, rho, proj)
+        train_y.append(ones_cnt / measurements_cnt)
+    return np.array(train_y).astype('float64')
 
-    train_X = np.array(train_X)
-    train_y = np.array(train_y)
-    indices = np.arange(train_X.shape[0])
-    if shuffle: np.random.shuffle(indices)
-    return train_X[indices], train_y[indices]
+def generate_dataset(target_state, projectors_cnt, measurements_cnt, noise:float=0):
+    dim = target_state.shape[0]
+    train_X_orig, train_X_noised = generate_projectors(dim, projectors_cnt, noise)
+    train_y = generate_y(target_state, train_X_orig, measurements_cnt)
+    return train_X_orig, train_X_noised, train_y
 
 
 def fidelity(state_1, state_2):
